@@ -1,6 +1,6 @@
 # JD-GUI
 
-JD-GUI, 클래스 파일에서 Java 소스를 표시하는 그래픽 유틸리티.
+JD-GUI, 클래스 파일을 열어보세요.
 
 ![](https://user-images.githubusercontent.com/39194432/79834206-9f35ab00-83e7-11ea-9d0e-19d0878aafbc.PNG)
 
