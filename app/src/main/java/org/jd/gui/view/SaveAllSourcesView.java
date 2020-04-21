@@ -24,7 +24,7 @@ public class SaveAllSourcesView {
     public SaveAllSourcesView(JFrame mainFrame, Runnable cancelCallback) {
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            saveAllSourcesDialog = new JDialog(mainFrame, "Save All Sources", false);
+            saveAllSourcesDialog = new JDialog(mainFrame, "전체 소스 저장", false);
             saveAllSourcesDialog.setResizable(false);
             saveAllSourcesDialog.addWindowListener(new WindowAdapter() {
                 @Override public void windowClosing(WindowEvent e) {
@@ -51,7 +51,7 @@ public class SaveAllSourcesView {
             // Button "Cancel"
             hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
-            JButton saveAllSourcesCancelButton = new JButton("Cancel");
+            JButton saveAllSourcesCancelButton = new JButton("취소");
             Action saveAllSourcesCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) {
                     cancelCallback.run();
@@ -76,7 +76,7 @@ public class SaveAllSourcesView {
     public void show(File file) {
         SwingUtil.invokeLater(() -> {
             // Init
-            saveAllSourcesLabel.setText("Saving '" + file.getAbsolutePath() + "'...");
+            saveAllSourcesLabel.setText("'" + file.getAbsolutePath() + "' 저장중...");
             saveAllSourcesProgressBar.setValue(0);
             saveAllSourcesProgressBar.setMaximum(10);
             saveAllSourcesProgressBar.setIndeterminate(true);
@@ -114,7 +114,7 @@ public class SaveAllSourcesView {
 
     public void showActionFailedDialog() {
         SwingUtil.invokeLater(() -> {
-            JOptionPane.showMessageDialog(saveAllSourcesDialog, "'Save All Sources' action failed.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(saveAllSourcesDialog, "'전체 소스 저장' 실패.", "Error", JOptionPane.ERROR_MESSAGE);
         });
     }
 }

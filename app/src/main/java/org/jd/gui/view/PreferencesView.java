@@ -32,7 +32,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
         this.panels = panels;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            preferencesDialog = new JDialog(mainFrame, "Preferences", false);
+            preferencesDialog = new JDialog(mainFrame, "설정", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -105,7 +105,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
             // Buttons "Ok" and "Cancel"
             Box hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
-            preferencesOkButton.setText("   Ok   ");
+            preferencesOkButton.setText("   적용 후 닫기   ");
             preferencesOkButton.addActionListener(e -> {
                 for (PreferencesPanel pp : panels) {
                     pp.savePreferences(preferences);
@@ -115,7 +115,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
             });
             hbox.add(preferencesOkButton);
             hbox.add(Box.createHorizontalStrut(5));
-            JButton preferencesCancelButton = new JButton("Cancel");
+            JButton preferencesCancelButton = new JButton("닫기");
             Action preferencesCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) { preferencesDialog.setVisible(false); }
             };

@@ -32,7 +32,7 @@ public class GoToView {
     public GoToView(Configuration configuration, JFrame mainFrame) {
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            goToDialog = new JDialog(mainFrame, "Go to Line", false);
+            goToDialog = new JDialog(mainFrame, "열 이동", false);
             goToDialog.setResizable(false);
 
             Box vbox = Box.createVerticalBox();
@@ -70,7 +70,7 @@ public class GoToView {
             // Buttons "Ok" and "Cancel"
             hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
-            JButton goToOkButton = new JButton("   Ok   ");
+            JButton goToOkButton = new JButton("   이동   ");
             hbox.add(goToOkButton);
             goToOkButton.setEnabled(false);
             goToOkButton.addActionListener(e -> {
@@ -78,7 +78,7 @@ public class GoToView {
                 goToDialog.setVisible(false);
             });
             hbox.add(Box.createHorizontalStrut(5));
-            JButton goToCancelButton = new JButton("Cancel");
+            JButton goToCancelButton = new JButton("취소");
             hbox.add(goToCancelButton);
             Action goToCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) { goToDialog.setVisible(false); }
@@ -115,17 +115,17 @@ public class GoToView {
 
                             if (lineNumber > navigator.getMaximumLineNumber()) {
                                 goToOkButton.setEnabled(false);
-                                showErrorMessage("Line number out of range");
+                                showErrorMessage("범위를 벗어났습니다.");
                             } else if (navigator.checkLineNumber(lineNumber)) {
                                 goToOkButton.setEnabled(true);
                                 clearErrorMessage();
                             } else {
                                 goToOkButton.setEnabled(false);
-                                showErrorMessage("Line number not found");
+                                showErrorMessage("열을 찾지 못했습니다.");
                             }
                         } catch (NumberFormatException e) {
                             goToOkButton.setEnabled(false);
-                            showErrorMessage("Not a number");
+                            showErrorMessage("수가 아닙니다.");
                         }
                     }
                 }
@@ -153,7 +153,7 @@ public class GoToView {
 
         SwingUtil.invokeLater(() -> {
             // Init
-            goToEnterLineNumberLabel.setText("Enter line number (1.." + navigator.getMaximumLineNumber() + "):");
+            goToEnterLineNumberLabel.setText("열 번호를 입력하세요. (1.." + navigator.getMaximumLineNumber() + "):");
             goToEnterLineNumberTextField.setText("");
             // Show
             goToDialog.setVisible(true);

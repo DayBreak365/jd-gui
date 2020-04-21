@@ -49,7 +49,7 @@ public class OpenTypeHierarchyView {
         this.selectedTypeCallback = selectedTypeCallback;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            openTypeHierarchyDialog = new JDialog(mainFrame, "Hierarchy Type", false);
+            openTypeHierarchyDialog = new JDialog(mainFrame, "상속 계층 구조", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -109,12 +109,12 @@ public class OpenTypeHierarchyView {
             Box hbox = Box.createHorizontalBox();
             vbox.add(hbox);
             hbox.add(Box.createHorizontalGlue());
-            JButton openTypeHierarchyOpenButton = new JButton("Open");
+            JButton openTypeHierarchyOpenButton = new JButton("열기");
             hbox.add(openTypeHierarchyOpenButton);
             openTypeHierarchyOpenButton.setEnabled(false);
             openTypeHierarchyOpenButton.addActionListener(e -> onTypeSelected());
             hbox.add(Box.createHorizontalStrut(5));
-            JButton openTypeHierarchyCancelButton = new JButton("Cancel");
+            JButton openTypeHierarchyCancelButton = new JButton("닫기");
             hbox.add(openTypeHierarchyCancelButton);
             Action openTypeHierarchyCancelActionListener = new AbstractAction() {
                 @Override public void actionPerformed(ActionEvent actionEvent) { openTypeHierarchyDialog.setVisible(false); }

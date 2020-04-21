@@ -23,16 +23,16 @@ public class ClassFileSaverPreferencesProvider extends JPanel implements Prefere
     public ClassFileSaverPreferencesProvider() {
         super(new GridLayout(0,1));
 
-        writeLineNumbersCheckBox = new JCheckBox("Write original line numbers");
-        writeMetadataCheckBox = new JCheckBox("Write metadata");
+        writeLineNumbersCheckBox = new JCheckBox("열 번호 저장하기");
+        writeMetadataCheckBox = new JCheckBox("메타데이터 저장하기");
 
         add(writeLineNumbersCheckBox);
         add(writeMetadataCheckBox);
     }
 
     // --- PreferencesPanel --- //
-    @Override public String getPreferencesGroupTitle() { return "Source Saver"; }
-    @Override public String getPreferencesPanelTitle() { return "Class file"; }
+    @Override public String getPreferencesGroupTitle() { return "소스 저장"; }
+    @Override public String getPreferencesPanelTitle() { return "클래스 파일"; }
     @Override public JComponent getPanel() { return this; }
 
     @Override public void init(Color errorBackgroundColor) {}

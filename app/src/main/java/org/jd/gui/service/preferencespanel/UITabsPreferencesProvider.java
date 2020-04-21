@@ -26,14 +26,14 @@ public class UITabsPreferencesProvider extends JPanel implements PreferencesPane
     public UITabsPreferencesProvider() {
         super(new GridLayout(0,1));
 
-        singleLineTabsCheckBox = new JCheckBox("Tabs on a single line");
+        singleLineTabsCheckBox = new JCheckBox("단일 줄 탭");
 
         add(singleLineTabsCheckBox);
     }
 
     // --- PreferencesPanel --- //
-    @Override public String getPreferencesGroupTitle() { return "User Interface"; }
-    @Override public String getPreferencesPanelTitle() { return "Tabs"; }
+    @Override public String getPreferencesGroupTitle() { return "유저 인터페이스"; }
+    @Override public String getPreferencesPanelTitle() { return "탭"; }
     @Override public JComponent getPanel() { return this; }
 
     @Override public void init(Color errorBackgroundColor) {}

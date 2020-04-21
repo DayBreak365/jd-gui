@@ -28,7 +28,7 @@ public class DirectoryIndexerPreferencesProvider extends JPanel implements Prefe
     public DirectoryIndexerPreferencesProvider() {
         super(new BorderLayout());
 
-        add(new JLabel("Maximum depth (1.." + MAX_VALUE + "): "), BorderLayout.WEST);
+        add(new JLabel("최대 깊이 (1.." + MAX_VALUE + "): "), BorderLayout.WEST);
 
         maximumDepthTextField = new JTextField();
         maximumDepthTextField.getDocument().addDocumentListener(this);
@@ -38,8 +38,8 @@ public class DirectoryIndexerPreferencesProvider extends JPanel implements Prefe
     }
 
     // --- PreferencesPanel --- //
-    @Override public String getPreferencesGroupTitle() { return "Indexer"; }
-    @Override public String getPreferencesPanelTitle() { return "Directory exploration"; }
+    @Override public String getPreferencesGroupTitle() { return "인덱서"; }
+    @Override public String getPreferencesPanelTitle() { return "디렉토리 탐색"; }
     @Override public JComponent getPanel() { return this; }
 
     @Override public void init(Color errorBackgroundColor) {

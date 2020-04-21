@@ -28,7 +28,7 @@ public class AboutView {
     public AboutView(JFrame mainFrame) {
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            aboutDialog = new JDialog(mainFrame, "About Java Decompiler", false);
+            aboutDialog = new JDialog(mainFrame, "Java 디컴파일러 정보", false);
             aboutDialog.setResizable(false);
 
             JPanel panel = new JPanel();
@@ -51,7 +51,7 @@ public class AboutView {
             subpanel.add(subvbox, BorderLayout.EAST);
             Box hbox = Box.createHorizontalBox();
             subvbox.add(hbox);
-            JLabel mainLabel = new JLabel("Java Decompiler");
+            JLabel mainLabel = new JLabel("Java 디컴파일러");
             mainLabel.setFont(UIManager.getFont("Label.font").deriveFont(Font.BOLD, 14));
             hbox.add(mainLabel);
             hbox.add(Box.createHorizontalGlue());

@@ -42,7 +42,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
     protected History history;
     protected Consumer<File> openFilesCallback;
     protected JFrame mainFrame;
-    protected JMenu recentFiles = new JMenu("Recent Files");
+    protected JMenu recentFiles = new JMenu("최근 파일 목록");
     protected Action closeAction;
     protected Action openTypeAction;
     protected Action backwardAction;
@@ -87,7 +87,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
         this.openFilesCallback = openFilesCallback;
         // Build GUI
         invokeLater(() -> {
-            mainFrame = new JFrame("Java Decompiler");
+            mainFrame = new JFrame("Java 디컴파일러");
             mainFrame.setIconImages(Arrays.asList(getImage("/org/jd/gui/images/jd_icon_32.png"), getImage("/org/jd/gui/images/jd_icon_64.png"), getImage("/org/jd/gui/images/jd_icon_128.png")));
             mainFrame.setMinimumSize(new Dimension(Constants.MINIMAL_WIDTH, Constants.MINIMAL_HEIGHT));
             mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -96,7 +96,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
             Action findNextAction = newAction("Next", newImageIcon("/org/jd/gui/images/next_nav.png"), true, findNextActionListener);
             findPanel = Box.createHorizontalBox();
             findPanel.setVisible(false);
-            findPanel.add(new JLabel("Find: "));
+            findPanel.add(new JLabel("검색: "));
             findComboBox = new JComboBox();
             findComboBox.setEditable(true);
             JComponent editorComponent = (JComponent)findComboBox.getEditor().getEditorComponent();
@@ -140,17 +140,17 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
             toolBar.setFloatable(false);
             toolBar.setRollover(true);
 
-            IconButton findNextButton = new IconButton("Next", newAction(newImageIcon("/org/jd/gui/images/next_nav.png"), true, findNextActionListener));
+            IconButton findNextButton = new IconButton("뒤로", newAction(newImageIcon("/org/jd/gui/images/next_nav.png"), true, findNextActionListener));
             toolBar.add(findNextButton);
 
             toolBar.add(Box.createHorizontalStrut(5));
 
-            IconButton findPreviousButton = new IconButton("Previous", newAction(newImageIcon("/org/jd/gui/images/prev_nav.png"), true, findPreviousActionListener));
+            IconButton findPreviousButton = new IconButton("앞으로", newAction(newImageIcon("/org/jd/gui/images/prev_nav.png"), true, findPreviousActionListener));
             toolBar.add(findPreviousButton);
 
             findPanel.add(toolBar);
             findCaseSensitive = new JCheckBox();
-            findCaseSensitive.setAction(newAction("Case sensitive", true, findCaseSensitiveActionListener));
+            findCaseSensitive.setAction(newAction("대소문자 구분", true, findCaseSensitiveActionListener));
             findPanel.add(findCaseSensitive);
             findPanel.add(Box.createHorizontalGlue());
 
@@ -172,31 +172,31 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
 
             // Actions //
             boolean browser = Desktop.isDesktopSupported() ? Desktop.getDesktop().isSupported(Desktop.Action.BROWSE) : false;
-            Action openAction = newAction("Open File...", newImageIcon("/org/jd/gui/images/open.png"), true, "Open a file", openActionListener);
-            closeAction = newAction("Close", false, closeActionListener);
-            Action saveAction = newAction("Save", newImageIcon("/org/jd/gui/images/save.png"), false, saveActionListener);
-            Action saveAllSourcesAction = newAction("Save All Sources", newImageIcon("/org/jd/gui/images/save_all.png"), false, saveAllSourcesActionListener);
-            Action exitAction = newAction("Exit", true, "Quit this program", exitActionListener);
-            Action copyAction = newAction("Copy", newImageIcon("/org/jd/gui/images/copy.png"), false, copyActionListener);
-            Action pasteAction = newAction("Paste Log", newImageIcon("/org/jd/gui/images/paste.png"), true, pasteActionListener);
-            Action selectAllAction = newAction("Select all", false, selectAllActionListener);
-            Action findAction = newAction("Find...", false, findActionListener);
-            openTypeAction = newAction("Open Type...", newImageIcon("/org/jd/gui/images/open_type.png"), false, openTypeActionListener);
-            Action openTypeHierarchyAction = newAction("Open Type Hierarchy...", false, openTypeHierarchyActionListener);
-            Action goToAction = newAction("Go to Line...", false, goToActionListener);
-            backwardAction = newAction("Back", newImageIcon("/org/jd/gui/images/backward_nav.png"), false, backwardActionListener);
-            forwardAction = newAction("Forward", newImageIcon("/org/jd/gui/images/forward_nav.png"), false, forwardActionListener);
-            Action searchAction = newAction("Search...", newImageIcon("/org/jd/gui/images/search_src.png"), false, searchActionListener);
-            Action jdWebSiteAction = newAction("JD Web site", browser, "Open JD Web site", jdWebSiteActionListener);
-            Action jdGuiIssuesActionAction = newAction("JD-GUI issues", browser, "Open JD-GUI issues page", jdGuiIssuesActionListener);
-            Action jdCoreIssuesActionAction = newAction("JD-Core issues", browser, "Open JD-Core issues page", jdCoreIssuesActionListener);
-            Action preferencesAction = newAction("Preferences...", newImageIcon("/org/jd/gui/images/preferences.png"), true, "Open the preferences panel", preferencesActionListener);
-            Action aboutAction = newAction("About...", true, "About JD-GUI", aboutActionListener);
+            Action openAction = newAction("파일 열기...", newImageIcon("/org/jd/gui/images/open.png"), true, "파일 열기", openActionListener);
+            closeAction = newAction("닫기", false, closeActionListener);
+            Action saveAction = newAction("저장", newImageIcon("/org/jd/gui/images/save.png"), false, saveActionListener);
+            Action saveAllSourcesAction = newAction("전체 소스 저장", newImageIcon("/org/jd/gui/images/save_all.png"), false, saveAllSourcesActionListener);
+            Action exitAction = newAction("나가기", true, "이 프로그램 나가기", exitActionListener);
+            Action copyAction = newAction("복사", newImageIcon("/org/jd/gui/images/copy.png"), false, copyActionListener);
+            Action pasteAction = newAction("붙여넣기", newImageIcon("/org/jd/gui/images/paste.png"), true, pasteActionListener);
+            Action selectAllAction = newAction("전체 선택", false, selectAllActionListener);
+            Action findAction = newAction("검색...", false, findActionListener);
+            openTypeAction = newAction("클래스 찾기...", newImageIcon("/org/jd/gui/images/open_type.png"), false, openTypeActionListener);
+            Action openTypeHierarchyAction = newAction("상속 계층 확인...", false, openTypeHierarchyActionListener);
+            Action goToAction = newAction("열 이동...", false, goToActionListener);
+            backwardAction = newAction("뒤로", newImageIcon("/org/jd/gui/images/backward_nav.png"), false, backwardActionListener);
+            forwardAction = newAction("앞으로", newImageIcon("/org/jd/gui/images/forward_nav.png"), false, forwardActionListener);
+            Action searchAction = newAction("찾기...", newImageIcon("/org/jd/gui/images/search_src.png"), false, searchActionListener);
+            Action jdWebSiteAction = newAction("JD 웹사이트", browser, "JD 웹사이트 열기", jdWebSiteActionListener);
+            Action jdGuiIssuesActionAction = newAction("JD-GUI 이슈", browser, "JD-GUI 이슈 페이지 열기", jdGuiIssuesActionListener);
+            Action jdCoreIssuesActionAction = newAction("JD-Core 이슈", browser, "JD-Core 이슈 페이지 열기", jdCoreIssuesActionListener);
+            Action preferencesAction = newAction("설정...", newImageIcon("/org/jd/gui/images/preferences.png"), true, "설정 패널 열기", preferencesActionListener);
+            Action aboutAction = newAction("정보", true, "JD-GUI의 정보를 확인합니다.", aboutActionListener);
 
             // Menu //
             int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
             JMenuBar menuBar = new JMenuBar();
-            JMenu menu = new JMenu("File");
+            JMenu menu = new JMenu("파일");
             menuBar.add(menu);
             menu.add(openAction).setAccelerator(KeyStroke.getKeyStroke('O', menuShortcutKeyMask));
             menu.addSeparator();
@@ -210,7 +210,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
                 menu.addSeparator();
                 menu.add(exitAction).setAccelerator(KeyStroke.getKeyStroke('X', InputEvent.ALT_MASK));
             }
-            menu = new JMenu("Edit");
+            menu = new JMenu("편집");
             menuBar.add(menu);
             menu.add(copyAction).setAccelerator(KeyStroke.getKeyStroke('C', menuShortcutKeyMask));
             menu.add(pasteAction).setAccelerator(KeyStroke.getKeyStroke('V', menuShortcutKeyMask));
@@ -218,7 +218,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
             menu.add(selectAllAction).setAccelerator(KeyStroke.getKeyStroke('A', menuShortcutKeyMask));
             menu.addSeparator();
             menu.add(findAction).setAccelerator(KeyStroke.getKeyStroke('F', menuShortcutKeyMask));
-            menu = new JMenu("Navigation");
+            menu = new JMenu("탐색");
             menuBar.add(menu);
             menu.add(openTypeAction).setAccelerator(KeyStroke.getKeyStroke('T', menuShortcutKeyMask));
             menu.add(openTypeHierarchyAction).setAccelerator(KeyStroke.getKeyStroke('H', menuShortcutKeyMask));
@@ -227,10 +227,10 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
             menu.addSeparator();
             menu.add(backwardAction).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.ALT_MASK));
             menu.add(forwardAction).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.ALT_MASK));
-            menu = new JMenu("Search");
+            menu = new JMenu("찾기");
             menuBar.add(menu);
             menu.add(searchAction).setAccelerator(KeyStroke.getKeyStroke('S', menuShortcutKeyMask|InputEvent.SHIFT_MASK));
-            menu = new JMenu("Help");
+            menu = new JMenu("도움말");
             menuBar.add(menu);
             if (browser) {
                 menu.add(jdWebSiteAction);
@@ -273,7 +273,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
                         invokeLater(() -> {
                             if (page == null) {
                                 // Update title
-                                mainFrame.setTitle("Java Decompiler");
+                                mainFrame.setTitle("Java 디컴파일러");
                                 // Update menu
                                 saveAction.setEnabled(false);
                                 copyAction.setEnabled(false);
@@ -287,7 +287,7 @@ public class MainView<T extends JComponent & UriGettable> implements UriOpenable
                                 String path = page.getUri().getPath();
                                 int index = path.lastIndexOf('/');
                                 String name = (index == -1) ? path : path.substring(index + 1);
-                                mainFrame.setTitle((name != null) ? name + " - Java Decompiler" : "Java Decompiler");
+                                mainFrame.setTitle((name != null) ? name + " - Java 디컴파일러" : "Java 디컴파일러");
                                 // Update history
                                 history.add(page.getUri());
                                 // Update history actions

@@ -39,7 +39,7 @@ public class MavenOrgSourceLoaderPreferencesProvider extends JPanel implements P
     public MavenOrgSourceLoaderPreferencesProvider() {
         super(new BorderLayout());
 
-        enableCheckBox = new JCheckBox("Search source code on maven.org for:");
+        enableCheckBox = new JCheckBox("maven.org에서 소스 코드 검색:");
         enableCheckBox.addActionListener(this);
 
         filtersTextArea = new JTextArea();
@@ -64,7 +64,7 @@ public class MavenOrgSourceLoaderPreferencesProvider extends JPanel implements P
             scrollPane.setPreferredSize(new Dimension(-1, 56));
         }
 
-        resetButton = new JButton("Reset");
+        resetButton = new JButton("초기화");
         resetButton.addActionListener(this);
 
         JPanel southPanel = new JPanel(new BorderLayout());
@@ -77,7 +77,7 @@ public class MavenOrgSourceLoaderPreferencesProvider extends JPanel implements P
     }
 
     // --- PreferencesPanel --- //
-    @Override public String getPreferencesGroupTitle() { return "Source loader"; }
+    @Override public String getPreferencesGroupTitle() { return "소스 로더"; }
     @Override public String getPreferencesPanelTitle() { return "maven.org"; }
     @Override public JComponent getPanel() { return this; }
 

@@ -44,7 +44,7 @@ public class OpenTypeView {
         this.api = api;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            openTypeDialog = new JDialog(mainFrame, "Open Type", false);
+            openTypeDialog = new JDialog(mainFrame, "클래스 찾기", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -56,7 +56,7 @@ public class OpenTypeView {
             panel.add(vbox, BorderLayout.NORTH);
 
             Box hbox = Box.createHorizontalBox();
-            hbox.add(new JLabel("Select a type to open (* = any string, ? = any character, TZ = TimeZone):"));
+            hbox.add(new JLabel("찾을 클래스를 입력하세요. (* = 모든 문자열, ? = 모든 문자, TZ = 타임존):"));
             hbox.add(Box.createHorizontalGlue());
             vbox.add(hbox);
 
@@ -106,7 +106,7 @@ public class OpenTypeView {
             vbox.add(Box.createVerticalStrut(10));
 
             hbox = Box.createHorizontalBox();
-            hbox.add(openTypeMatchLabel = new JLabel("Matching types:"));
+            hbox.add(openTypeMatchLabel = new JLabel("일치하는 클래스:"));
             hbox.add(Box.createHorizontalGlue());
             vbox.add(hbox);
 
@@ -141,12 +141,12 @@ public class OpenTypeView {
             vbox.add(Box.createVerticalStrut(25));
             vbox.add(hbox = Box.createHorizontalBox());
             hbox.add(Box.createHorizontalGlue());
-            JButton openTypeOpenButton = new JButton("Open");
+            JButton openTypeOpenButton = new JButton("열기");
             hbox.add(openTypeOpenButton);
             openTypeOpenButton.setEnabled(false);
             openTypeOpenButton.addActionListener(e -> onTypeSelected(selectedTypeCallback));
             hbox.add(Box.createHorizontalStrut(5));
-            JButton openTypeCancelButton = new JButton("Cancel");
+            JButton openTypeCancelButton = new JButton("닫기");
             hbox.add(openTypeCancelButton);
             Action openTypeCancelActionListener = new AbstractAction() {
                 @Override public void actionPerformed(ActionEvent actionEvent) { openTypeDialog.setVisible(false); }
@@ -222,13 +222,10 @@ public class OpenTypeView {
 
             switch (count) {
                 case 0:
-                    openTypeMatchLabel.setText("Matching types:");
-                    break;
-                case 1:
-                    openTypeMatchLabel.setText("1 matching type:");
+                    openTypeMatchLabel.setText("일치하는 클래스:");
                     break;
                 default:
-                    openTypeMatchLabel.setText(count + " matching types:");
+                    openTypeMatchLabel.setText("일치하는 클래스 " + count  + "개:");
             }
         });
     }
