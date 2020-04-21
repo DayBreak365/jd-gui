@@ -1,65 +1,34 @@
 # JD-GUI
 
-JD-GUI, a standalone graphical utility that displays Java sources from CLASS files.
+JD-GUI, 클래스 파일에서 Java 소스를 표시하는 그래픽 유틸리티.
 
-![](https://raw.githubusercontent.com/java-decompiler/jd-gui/master/src/website/img/jd-gui.png)
+![](https://user-images.githubusercontent.com/39194432/79834206-9f35ab00-83e7-11ea-9d0e-19d0878aafbc.PNG)
 
-- Java Decompiler projects home page: [http://java-decompiler.github.io](http://java-decompiler.github.io)
-- JD-GUI source code: [https://github.com/java-decompiler/jd-gui](https://github.com/java-decompiler/jd-gui)
+- Java 디컴파일러 프로젝트 홈페이지: [http://java-decompiler.github.io](http://java-decompiler.github.io)
+- JD-GUI 소스 코드: [https://github.com/java-decompiler/jd-gui](https://github.com/java-decompiler/jd-gui)
 
-## Description
-JD-GUI is a standalone graphical utility that displays Java source codes of 
-".class" files. You can browse the reconstructed source code with the JD-GUI
-for instant access to methods and fields.
+## 어떤 프로그램인가요?
+JD-GUI는 ".class" 파일의 Java 소스 코드를 표시하는 독립적인 그래픽 유틸리티입니다. JD-GUI를 통해 재구성 된 소스 코드를 확인하고 메소드와 필드에
+즉시 액세스해보세요.
 
-## How to build JD-GUI ?
-```
-> git clone https://github.com/java-decompiler/jd-gui.git
-> cd jd-gui
-> ./gradlew build 
-```
-generate :
-- _"build/libs/jd-gui-x.y.z.jar"_
-- _"build/libs/jd-gui-x.y.z-min.jar"_
-- _"build/distributions/jd-gui-windows-x.y.z.zip"_
-- _"build/distributions/jd-gui-osx-x.y.z.tar"_
-- _"build/distributions/jd-gui-x.y.z.deb"_
-- _"build/distributions/jd-gui-x.y.z.rpm"_
+## JD-GUI를 어떻게 실행하나요?
+- _"jd-gui-x.y.z.jar"_ 더블 클릭.
+- _"java -jar jd-gui-x.y.z.jar"_ 또는 _"java -classpath jd-gui-x.y.z.jar org.jd.gui.App"_ 명령 실행.
 
-## How to launch JD-GUI ?
-- Double-click on _"jd-gui-x.y.z.jar"_
-- Double-click on _"jd-gui.exe"_ application from Windows
-- Double-click on _"JD-GUI"_ application from Mac OSX
-- Execute _"java -jar jd-gui-x.y.z.jar"_ or _"java -classpath jd-gui-x.y.z.jar org.jd.gui.App"_
+## JD-GUI는 어떻게 사용하나요?
+- "파일 > 파일 열기..."에서 파일을 여세요.
+- "파일 > 최근 파일 목록"에서 파일을 여세요.
+- 파일 탐색기에서 파일을 드래그 앤 드롭하세요.
 
-## How to use JD-GUI ?
-- Open a file with menu "File > Open File..."
-- Open recent files with menu "File > Recent Files"
-- Drag and drop files from your file explorer
+## JD-GUI를 삭제하려면 어떻게 해야하나요?
+- 자바: "jd-gui-x.y.z.jar"와 "jd-gui.cfg" 삭제.
+- 맥 OSX: "JD-GUI" 애플리케이션을 휴지통으로 드래그 앤 드롭.
+- 윈도우: "jd-gui.exe"와 "jd-gui.cfg" 삭제.
 
-## How to extend JD-GUI ?
-```
-> ./gradlew idea 
-```
-generate Idea Intellij project
-```
-> ./gradlew eclipse
-```
-generate Eclipse project
-```
-> java -classpath jd-gui-x.y.z.jar;myextension1.jar;myextension2.jar org.jd.gui.App
-```
-launch JD-GUI with your extensions
+## 라이선스
+[GNU GPL v3](LICENSE)에 따라 릴리즈 되었습니다.
 
-## How to uninstall JD-GUI ?
-- Java: Delete "jd-gui-x.y.z.jar" and "jd-gui.cfg".
-- Mac OSX: Drag and drop "JD-GUI" application into the trash.
-- Windows: Delete "jd-gui.exe" and "jd-gui.cfg".
-
-## License
-Released under the [GNU GPL v3](LICENSE).
-
-## Donations
-Did JD-GUI help you to solve a critical situation? Do you use JD-Eclipse daily? What about making a donation?
+## 후원
+JD-GUI가 당신의 문제를 해결하는데 도움이 되었나요? JD-GUI의 개발자(원작자)에게 후원해보세요!
 
 [![paypal](https://raw.githubusercontent.com/java-decompiler/jd-gui/master/src/website/img/btn_donate_euro.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C88ZMVZ78RF22) [![paypal](https://raw.githubusercontent.com/java-decompiler/jd-gui/master/src/website/img/btn_donate_usd.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CRMXT4Y4QLQGU)
